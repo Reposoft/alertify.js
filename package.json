@@ -1,12 +1,13 @@
 {
-  "name": "alertify",
-  "description": "browser dialogs never looked so good",
-  "version": "0.4.0rc1",
+  "name": "alertify-webpack",
+  "description": "Webpack module: browser dialogs never looked so good",
+  "version": "0.2.0",
   "homepage": "http://fabien-d.github.com/alertify.js/",
   "author": {
     "name": "Fabien Doiron",
     "email": "fabien.doiron@gmail.com"
   },
+  "repository": "https://github.com/Reposoft/alertify.js",
   "scripts": {
     "test": "grunt test"
   },
