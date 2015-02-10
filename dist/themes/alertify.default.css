@@ -85,20 +85,19 @@
   border-radius: 4px; }
 
 .alertify-log-info {
-  background: #1F1F1F;
-  background: rgba(0, 0, 0, 0.9);
-  color: #FFF;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5); }
+  color: #3A8ABF;
+  background: #D9EDF7;
+}
 
 .alertify-log-error {
-  color: #FFF;
-  background: #FE1A00;
-  background: rgba(254, 26, 0, 0.9); }
+  color: #B94A48;
+  background: #F2DEDE;
+}
 
 .alertify-log-success {
-  color: #FFF;
-  background: #5CB811;
-  background: rgba(92, 184, 17, 0.9); }
+  color: #468847;
+  background: #DFF0D8;
+}
 
 .is-alertify-log-showing {
   right: 0; }
