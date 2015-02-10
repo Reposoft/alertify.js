@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "prestart": "node_modules/webpack/bin/webpack.js"
+  },
+  "devDependencies": {
+    "webpack": "^1.5.3"
+  },
+  "dependencies": {
+    "jquery": "^2.1.3"
+  }
+}

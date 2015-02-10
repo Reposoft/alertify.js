@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title>alertify.js - browser dialogs never looked so good</title>
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="../dist/themes/alertify.css" />
-    <link rel="stylesheet" href="../dist/themes/alertify.default.css" id="toggleCSS" />
     <link rel="stylesheet" href="assets/js/lib/sh/shCore.css" />
     <link rel="stylesheet" href="assets/js/lib/sh/shCoreDefault.css" />
     <link href="http://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet" type="text/css">
@@ -364,7 +362,7 @@
         </div>
     </footer>
 
-    <script src="../dist/alertify.min.js"></script>
+    <script src="demo-bundle.js"></script>
     <script src="assets/js/lib/sh/shCore.js"></script>
     <script src="assets/js/lib/sh/shBrushJScript.js"></script>
     <script>
@@ -376,9 +374,12 @@
         var
         d = Alertify.dialog,
         l = Alertify.log,
-        $ = Alertify.get,
+        //$ = Alertify.get,
+        getById = function(id) {
+          return document.getElementById(id);
+        },
         reset = function () {
-            $("toggleCSS").href = "../dist/themes/alertify.default.css";
+            //getById("toggleCSS").href = "../dist/themes/alertify.default.css";
 
             d.labels.ok     = "OK";
             d.labels.cancel = "Cancel";
@@ -389,13 +390,13 @@
 
         // ==============================
         // Standard Dialogs
-        $("alert").onclick = function () {
+        getById("alert").onclick = function () {
             reset();
             d.alert("This is an alert dialog");
             return false;
         };
 
-        $("confirm").onclick = function () {
+        getById("confirm").onclick = function () {
             reset();
             d.confirm("This is a confirm dialog", function () {
                 l.success("You've clicked OK");
@@ -405,7 +406,7 @@
             return false;
         };
 
-        $("prompt").onclick = function () {
+        getById("prompt").onclick = function () {
             reset();
             d.prompt("This is a prompt dialog", function (str) {
                 l.success("You've clicked OK and typed: " + str);
@@ -417,7 +418,7 @@
 
         // ==============================
         // Standard Dialogs
-        $("notification").onclick = function () {
+        getById("notification").onclick = function () {
             reset();
             l.create("info", "Standard log message");
             return false;
@@ -428,64 +429,64 @@
             canClose    = false,
             canRecreate = false,
             canReshow   = false;
-        $("notiAPI").onclick = function () {
+        getById("notiAPI").onclick = function () {
             if (canCreate) {
                 reset();
                 logAPI = logAPI || l.info("API driven log", 0);
                 canCreate = false;
                 canClose  = true;
                 this.className = "button-primary is-disabled";
-                $("closeAPI").className = "button-primary";
+                getById("closeAPI").className = "button-primary";
             }
             return false;
         };
-        $("closeAPI").onclick = function () {
+        getById("closeAPI").onclick = function () {
             if (canClose) {
                 reset();
                 logAPI.close();
                 canClose    = false;
                 canRecreate = true;
                 this.className = "button-primary is-disabled";
-                $("recreateAPI").className = "button-primary";
+                getById("recreateAPI").className = "button-primary";
             }
             return false;
         };
-        $("recreateAPI").onclick = function () {
+        getById("recreateAPI").onclick = function () {
             if (canRecreate) {
                 reset();
                 logAPI.create();
                 canRecreate = false;
                 canReshow   = true;
                 this.className = "button-primary is-disabled";
-                $("reshowAPI").className = "button-primary";
+                getById("reshowAPI").className = "button-primary";
             }
             return false;
         };
-        $("reshowAPI").onclick = function () {
+        getById("reshowAPI").onclick = function () {
             if (canReshow) {
                 reset();
                 logAPI.show();
                 canReshow = false;
                 canClose  = true;
                 this.className = "button-primary is-disabled";
-                $("closeAPI").className = "button-primary";
+                getById("closeAPI").className = "button-primary";
             }
             return false;
         };
 
-        $("info").onclick = function () {
+        getById("info").onclick = function () {
             reset();
             l.info("Standard log message");
             return false;
         };
 
-        $("success").onclick = function () {
+        getById("success").onclick = function () {
             reset();
             l.success("Success log message");
             return false;
         };
 
-        $("error").onclick = function () {
+        getById("error").onclick = function () {
             reset();
             l.error("Error log message");
             return false;
@@ -493,19 +494,19 @@
 
         // ==============================
         // Custom Properties
-        $("delay").onclick = function () {
+        getById("delay").onclick = function () {
             reset();
             l.info("Hiding in 10 seconds", 10000);
             return false;
         };
 
-        $("forever").onclick = function () {
+        getById("forever").onclick = function () {
             reset();
             l.info("Will stay until clicked", 0);
             return false;
         };
 
-        $("labels").onclick = function () {
+        getById("labels").onclick = function () {
             reset();
             d.labels.ok     = "Accept";
             d.labels.cancel = "Deny";
@@ -517,7 +518,7 @@
             return false;
         };
 
-        $("focus").onclick = function () {
+        getById("focus").onclick = function () {
             reset();
             d.buttonFocus = "cancel";
             d.confirm("Confirm dialog with cancel button focused", function () {
@@ -528,7 +529,7 @@
             return false;
         };
 
-        $("order").onclick = function () {
+        getById("order").onclick = function () {
             reset();
             d.buttonReverse = true;
             d.confirm("Confirm dialog with reversed button order", function () {
@@ -541,9 +542,12 @@
 
         // ==============================
         // Custom Themes
-        $("bootstrap").onclick = function () {
+        getById("bootstrap").onclick = function () {
+            Alertify.log.error('Bootstrap theme is currently the default');
+            Alertify.log.error('TODO reimplement css theme toggle');
+            Alertify.log.error('...or can we detect Boostrap presence with Webpack?');
             reset();
-            $("toggleCSS").href = "../dist/themes/alertify.bootstrap.css";
+            //getById("toggleCSS").href = "../dist/themes/alertify.bootstrap.css";
             Alertify.dialog.prompt("Prompt dialog with bootstrap theme", function () {
                 l.success("You've clicked OK");
             }, function () {
