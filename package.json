@@ -1,7 +1,7 @@
 {
   "name": "alertify-webpack",
   "description": "Webpack module: browser dialogs never looked so good",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "homepage": "http://fabien-d.github.com/alertify.js/",
   "author": {
     "name": "Fabien Doiron",
