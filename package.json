@@ -6,11 +6,16 @@
   "homepage": "https://github.com/Reposoft/alertify.js/tree/0.4-webpack-0.1",
   "main": "./index",
   "devDependencies": {
+    "webpack": "^1.5.3"
   },
   "licenses": [
     {
       "type": "MIT",
       "url": "http://opensource.org/licenses/mit-license.php"
     }
-  ]
+  ],
+  "dependencies": {
+    "css-loader": "^0.9.1",
+    "style-loader": "^0.8.3"
+  }
 }
