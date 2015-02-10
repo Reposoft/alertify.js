@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "prestart": "node_modules/webpack/bin/webpack.js"
+  },
+  "devDependencies": {
+    "webpack": "^1.5.3"
+  }
+}
