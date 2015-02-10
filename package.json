@@ -8,6 +8,7 @@
     "email": "fabien.doiron@gmail.com"
   },
   "repository": "https://github.com/Reposoft/alertify.js",
+  "main": "./index",
   "scripts": {
     "test": "grunt test"
   },
